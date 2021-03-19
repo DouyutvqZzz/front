@@ -1,0 +1,477 @@
+﻿<!DOCTYPE HTML >
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>今日头条</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        body{
+         overflow-y: auto;
+        }
+        .daohang{
+            width: 100%;
+            height: 35px;
+            background-color:#222;
+        }
+        .daohang a{
+            text-decoration: none;
+            color: #fff;
+            display: inline-block;
+            height: 35px;
+            line-height: 35px;
+            margin-left: 20px;
+            font-size: 14px;
+        }
+        a:hover{
+            color:#ccc;
+        }
+        .daohang .s-l{
+            float: left;
+        }
+        .daohang .s-r{
+            float: right;
+        }
+        .daohang .s-r .red{
+            width: 70px;
+            height: 35px;
+            background: #ed4040;
+            text-align: center;
+        }
+        .banxin{
+            width: 1220px;
+            margin: 0 auto;
+            margin-top: 15px;
+
+        }
+        .banxin .left{
+            width: 118px;
+            height:800px;
+            margin-left: 20px;
+            float: left;
+        }
+        .left img{
+            width: 118px;
+            height: 28px;
+        }
+        .l-container ul{
+            margin-top: 20px;
+            text-align: center;
+        }
+        .l-container li{
+            list-style: none;
+            width: 118px;
+            height: 45px;
+            line-height: 45px;
+        }
+        #l-li li:hover{
+            color: #fff;
+            background: #ed4040 ;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .banxin .center {
+            width: 660px;
+            float: left;
+            margin-left: 45px;
+        }
+        .center .dianji{
+            width: 660px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            color: #fff;
+            background: #77b0f6;
+            border-radius: 2px;
+            cursor: pointer;
+        }
+
+        .dianji .x {
+            float: right;
+            margin-right: 20px;
+            font-weight: bold;
+        }
+        .center .yule{
+            width: 660px;
+            height: 123px;
+            border-bottom: 1px solid #ccc;
+            position: relative;
+            cursor: pointer;
+
+
+        }
+        .center .yule img{
+            width: 158px;
+            height: 102px;
+            margin-top: 5px;
+
+
+        }
+        .center .yule .descript{
+            position: absolute;
+            top: 20px;
+            left: 175px;
+        }
+        .center .yule .span1{
+            border: 1px solid #ccc;
+            font-size: 10px;
+            color: #ccc;
+        }
+        .span2{
+            border: 1px solid #ccc;
+            font-size: 10px;
+            color: #ccc;
+            border-radius: 10px;
+            background: #ed4040;
+
+        }
+         .span3{
+            font-size: 14px;
+        }
+        .span4{
+          font-weight: bold;
+            color: #ccc;
+            float: right;
+        }
+        .center .prcture{
+            width: 660px;
+            height: 187px;
+            border-bottom: 1px solid #ccc;
+            cursor: pointer;
+
+        }
+        .center .prcture h3{
+            margin-top: 10px;
+        }
+        .center .prcture img{
+            width: 156px;
+            height: 100px;
+            margin-top: 10px;
+
+        }
+        .center .prcture .name{
+            margin-left: 5px;
+        }
+        .banxin .right{
+            width: 340px;
+            height: 800px;
+            float: right;
+        }
+        .right .r-top input{
+            width: 340px;
+            height: 40px;
+            border-radius: 5px;
+            background: #f5f6f7;
+        }
+        .right .r-middle{
+            width: 340px;
+            height: 399px;
+            background: #f4f5f6;
+            margin-top: 15px;
+            border-top:2px solid red ;
+        }
+        .r-middle h3{
+            width: 340px;
+            height: 35px;
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+        .r-middle .xinwen{
+            position: relative;
+            width: 300px;
+            height: 77px;
+            margin-left: 20px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #ccc;
+            cursor: pointer;
+        }
+        .xinwen img{
+            width: 60px;
+            height: 60px;
+            margin-top: 10px;
+        }
+        .xinwen span{
+            position: absolute;
+            font-size: 15px;
+            margin-top: 22px;
+            margin-left: 5px;
+        }
+
+        .r-middle .xinwen1{
+            position: relative;
+            width: 300px;
+            height: 77px;
+            margin-left: 20px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            cursor: pointer;
+        }
+        .xinwen1 img{
+            width: 60px;
+            height: 60px;
+            margin-top: 10px;
+        }
+        .xinwen1 span{
+            position: absolute;
+            font-size: 15px;
+            margin-top: 22px;
+            margin-left: 5px;
+        }
+        .right .r-foot {
+            width: 340px;
+            height: 550px;
+            background: #f4f5f6;
+            border-top: 2px solid red;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+        .r-foot h3{
+            width: 340px;
+            height: 40px;
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+        .r-foot img{
+            width: 118px;
+            height: 68px;
+        }
+        .r-foot li{
+            list-style: none;
+            text-align: right;
+            height: 84px;
+            margin-right: 10px;
+            position: relative;
+        }
+        .r-foot li .one{
+            position: absolute;
+            width:200px;
+            text-align: left;
+            padding-left: 20px;
+            padding-top: 3px;
+        }
+        .r-foot .one span{
+            font-size: 10px;
+            color: #ccc;
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="daohang">
+   <span class="s-l">
+        <a href="#">下载APP</a>
+        <a href="#"> 北京 &nbsp; 晴 &nbsp;-1°&nbsp; /&nbsp; 13° </a>
+   </span>
+    <span class="s-r">
+        <a href="#" class="red">登录</a>
+        <a href="#">问答</a>
+        <a href="#">头条号</a>
+        <a href="#">图虫</a>
+        <a href="#">反馈</a>
+        <a href="#">更多</a>
+    </span>
+</div>
+<div class="banxin">
+    <div class="left">
+        <div>
+            <img src="头条.png">
+        </div>
+        <div class="l-container" id="l-li">
+            <ul>
+                <li>推荐</li>
+                <li>热点</li>
+                <li>视频</li>
+                <li>图片</li>
+                <li>段子</li>
+                <li>社会</li>
+                <li>娱乐</li>
+                <li>科技</li>
+                <li>体育</li>
+                <li>汽车</li>
+                <li>搞笑</li>
+                <li>更多</li>
+            </ul>
+        </div>
+    </div>
+    <div class="center">
+        <div>&nbsp;</div>
+        <div class="dianji">
+            <span>您有未读新闻，点击查看</span>
+            <span class="x">x</span>
+        </div>
+        <div class="yule">
+            <img src="images/1.jpg">
+            <div class="descript">
+                <h3>
+                    国家劳动模范一级演员，因戏生情弃十七年发妻，后送房车补偿前妻
+                </h3>
+               <div style="margin-top: 5px;">
+                   <span class="span1">时政</span>
+                   <span class="span2">专</span>
+                   <span class="span3">专题 ⋅ 1小时前</span>
+                   <span class="span4">x</span>
+               </div>
+            </div>
+        </div>
+        <div class="yule">
+            <img src="images/1.jpg">
+            <div class="descript">
+                <h3>
+                    国家劳动模范一级演员，因戏生情弃十七年发妻，后送房车补偿前妻
+                </h3>
+                <div style="margin-top: 5px;">
+                    <span class="span1">时政</span>
+                    <span class="span2">专</span>
+                    <span class="span3">专题 ⋅ 1小时前</span>
+                    <span class="span4">x</span>
+                </div>
+            </div>
+        </div>
+        <div class="yule">
+            <img src="images/1.jpg">
+            <div class="descript">
+                <h3>
+                    国家劳动模范一级演员，因戏生情弃十七年发妻，后送房车补偿前妻
+                </h3>
+                <div style="margin-top: 5px;">
+                    <span class="span1">时政</span>
+                    <span class="span2">专</span>
+                    <span class="span3">专题 ⋅ 1小时前</span>
+                    <span class="span4">x</span>
+                </div>
+            </div>
+        </div>
+        <div class="prcture">
+            <h3>
+                预约参加：【2017年爱尔兰投资移民新政解析会】
+            </h3>
+            <img src="images/110.jpg">
+            <img class="name" src="images/110.jpg">
+            <img class="name" src="images/110.jpg">
+            <img class="name" src="images/110.jpg">
+
+            <div style="margin-top: 10px;">
+                <span class="span2">和</span>
+                <span class="span3">和中移民 ⋅ 3小时前  广告</span>
+                <span class="span4">x</span>
+            </div>
+        </div>
+        <div class="yule">
+            <img src="images/1.jpg">
+            <div class="descript">
+                <h3>
+                    国家劳动模范一级演员，因戏生情弃十七年发妻，后送房车补偿前妻
+                </h3>
+                <div style="margin-top: 5px;">
+                    <span class="span1">时政</span>
+                    <span class="span2">专</span>
+                    <span class="span3">专题 ⋅ 1小时前</span>
+                    <span class="span4">x</span>
+                </div>
+            </div>
+        </div>
+        <div class="yule">
+            <img src="images/1.jpg">
+            <div class="descript">
+                <h3>
+                    国家劳动模范一级演员，因戏生情弃十七年发妻，后送房车补偿前妻
+                </h3>
+                <div style="margin-top: 5px;">
+                    <span class="span1">时政</span>
+                    <span class="span2">专</span>
+                    <span class="span3">专题 ⋅ 1小时前</span>
+                    <span class="span4">x</span>
+                </div>
+            </div>
+        </div>
+        <div class="yule">
+            <img src="images/1.jpg">
+            <div class="descript">
+                <h3>
+                    国家劳动模范一级演员，因戏生情弃十七年发妻，后送房车补偿前妻
+                </h3>
+                <div style="margin-top: 5px;">
+                    <span class="span1">时政</span>
+                    <span class="span2">专</span>
+                    <span class="span3">专题 ⋅ 1小时前</span>
+                    <span class="span4">x</span>
+                </div>
+            </div>
+        </div>
+        <div class="dianji">
+            <span>看到这里，点击刷新</span>
+            <span class="x">x</span>
+        </div>
+    </div>
+    <div class="right">
+        <div class="r-top">
+            <input type="text"value="请输入关键字">
+        </div>
+        <div class="r-middle">
+            <h3>24小时热闻</h3>
+            <div class="xinwen">
+                <img src="images/183.jpg">
+                <span>国家劳动模范一级演员，因戏生情弃十七年发妻，后送房车补偿前妻</span>
+            </div>
+            <div class="xinwen">
+                <img src="images/183.jpg">
+                <span>国家劳动模范一级演员，因戏生情弃十七年发妻，后送房车补偿前妻</span>
+            </div>
+            <div class="xinwen1">
+                <img src="images/183.jpg">
+                <span>国家劳动模范一级演员，因戏生情弃十七年发妻，后送房车补偿前妻</span>
+            </div>
+        </div>
+        <div class="r-foot">
+            <h3>热门视频</h3>
+            <ul>
+                <li>
+                    <div class="one">
+                        <p>
+                            国家劳动模范一级演员，因戏生情弃十七年发妻，后送房车补偿前妻
+                        </p>
+                        <span>播放</span>
+                        <span>评论</span>
+                    </div>
+                    <img src="images/17ee.jpg">
+                </li>
+                <li>
+                    <div class="one">
+                        <p>
+                            国家劳动模范一级演员，因戏生情弃十七年发妻，后送房车补偿前妻
+                        </p>
+                        <span>播放</span>
+                        <span>评论</span>
+                    </div>
+                    <img src="images/17ee.jpg">
+                </li>
+                <li>
+                    <div class="one">
+                        <p>
+                            国家劳动模范一级演员，因戏生情弃十七年发妻，后送房车补偿前妻
+                        </p>
+                        <span>播放</span>
+                        <span>评论</span>
+                    </div>
+                    <img src="images/17ee.jpg">
+                </li>
+                <li>
+                    <div class="one">
+                        <p>
+                            国家劳动模范一级演员，因戏生情弃十七年发妻，后送房车补偿前妻
+                        </p>
+                        <span>播放</span>
+                        <span>评论</span>
+                    </div>
+                    <img src="images/17ee.jpg">
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html>
